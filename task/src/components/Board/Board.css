@@ -1,0 +1,31 @@
+/* src/components/Board/Board.css */
+.board {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .group {
+    flex: 1;
+  }
+  
+  /* Add other styling as needed */
+  
+  /* src/components/Card/Card.css */
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .card-header {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .card-body {
+    padding: 10px;
+  }
+  
+  /* Add other styling as needed */
+  

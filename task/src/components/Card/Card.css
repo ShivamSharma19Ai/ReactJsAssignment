@@ -1,0 +1,46 @@
+/* src/components/Card/Card.css */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card-id {
+    font-weight: bold;
+  }
+  
+  .card-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .card-body {
+    margin-top: 10px;
+  }
+  
+  .card-title {
+    margin: 0;
+  }
+  
+  .exclamation-button {
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+  
+  .card-tag {
+    font-size: 14px;
+    color: #777;
+  }
+  
