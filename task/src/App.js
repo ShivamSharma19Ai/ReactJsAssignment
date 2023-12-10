@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useState, useEffect } from 'react';
 import Board from './components/Board/Board';
 import Controls from './components/Controls/Controls';
