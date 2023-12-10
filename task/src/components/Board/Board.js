@@ -1,4 +1,3 @@
-// src/components/Board/Board.js
 import React from 'react';
 import Card from '../Card/Card';
 import './Board.css';
