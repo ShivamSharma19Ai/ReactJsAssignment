@@ -8,23 +8,31 @@
     flex: 1;
   }
   
-  /* Add other styling as needed */
-  
-  /* src/components/Card/Card.css */
-  .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 10px;
+  .group-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Add a border below the heading if needed */
   }
   
-  .card-header {
-    background-color: #f2f2f2;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+  .group-icon {
+    /* Your styles for the icon image */
+    width: 20px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    margin-right: 10px; /* Adjust the margin as needed */
   }
   
-  .card-body {
-    padding: 10px;
+  .row-name {
+    /* Your styles for the title */
+    flex-grow: 1; /* This will make the title take up the available space */
+  }
+  
+  .add-button,
+  .options-button {
+    /* Your styles for the + and ... buttons */
+    cursor: pointer;
+    /* Add any additional styling you need */
   }
   
   /* Add other styling as needed */

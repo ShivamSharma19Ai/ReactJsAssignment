@@ -5,10 +5,6 @@ import './Board.css';
 
 const Board = ({ tickets, groupingOption, sortOption }) => {
   const groupTickets = () => {
-    // Implement the logic to group tickets based on the grouping option
-    // In this case, we'll group by the selected option (status, user, priority)
-    // You can customize this logic based on your requirements
-
     switch (groupingOption) {
       case 'status':
         return groupByStatus(tickets);
@@ -21,10 +17,7 @@ const Board = ({ tickets, groupingOption, sortOption }) => {
     }
   };
 
-  const sortTickets = groupedTickets => {
-    // Implement the logic to sort tickets based on the sort option (priority, title)
-    // You can customize this logic based on your requirements
-
+  const sortTickets = (groupedTickets) => {
     switch (sortOption) {
       case 'priority':
         return sortByPriority(groupedTickets);
@@ -35,9 +28,7 @@ const Board = ({ tickets, groupingOption, sortOption }) => {
     }
   };
 
-  const groupByStatus = tickets => {
-    // Implement logic to group tickets by status
-    // Return an array of objects, where each object represents a group
+  const groupByStatus = (tickets) => {
     return tickets.reduce((groups, ticket) => {
       const groupKey = ticket.status;
       if (!groups[groupKey]) {
@@ -48,9 +39,7 @@ const Board = ({ tickets, groupingOption, sortOption }) => {
     }, {});
   };
 
-  const groupByUser = tickets => {
-    // Implement logic to group tickets by user
-    // Return an array of objects, where each object represents a group
+  const groupByUser = (tickets) => {
     return tickets.reduce((groups, ticket) => {
       const groupKey = ticket.userId;
       if (!groups[groupKey]) {
@@ -61,28 +50,22 @@ const Board = ({ tickets, groupingOption, sortOption }) => {
     }, {});
   };
 
-  const groupByPriority = tickets => {
-    // Implement logic to group tickets by priority
-    // Return an array of objects, where each object represents a group
+  const groupByPriority = (tickets) => {
     return tickets.reduce((groups, ticket) => {
-      const groupKey = ticket.priority;
+      const groupKey = `Priority ${ticket.priority}`;
       if (!groups[groupKey]) {
-        groups[groupKey] = { name: `Priority ${groupKey}`, tickets: [] };
+        groups[groupKey] = { name: groupKey, tickets: [] };
       }
       groups[groupKey].tickets.push(ticket);
       return groups;
     }, {});
   };
 
-  const sortByPriority = groupedTickets => {
-    // Implement logic to sort grouped tickets by priority
-    // Return the sorted array of groups
-    return groupedTickets.sort((a, b) => b.name - a.name);
+  const sortByPriority = (groupedTickets) => {
+    return groupedTickets.sort((a, b) => b.name.split(' ')[1] - a.name.split(' ')[1]);
   };
 
-  const sortByTitle = groupedTickets => {
-    // Implement logic to sort grouped tickets by title
-    // Return the sorted array of groups
+  const sortByTitle = (groupedTickets) => {
     return groupedTickets.sort((a, b) => a.name.localeCompare(b.name));
   };
 
@@ -90,13 +73,17 @@ const Board = ({ tickets, groupingOption, sortOption }) => {
 
   return (
     <div className="board">
-      {/* Render tickets based on the grouped and sorted data */}
       {groupedAndSortedTickets.length > 0 ? (
-        groupedAndSortedTickets.map(group => (
+        groupedAndSortedTickets.map((group) => (
           <div key={group.name} className="group">
-            <h2>{group.name}</h2>
+            <div className="group-heading">
+              <img src="https://cdn-icons-png.flaticon.com/512/1985/1985474.png" alt="" className="group-icon" />
+              <span className="row-name">{group.name}</span>
+              <button className="add-button">+</button>
+              <button className="options-button">...</button>
+            </div>
             <div className="cards">
-              {group.tickets.map(ticket => (
+              {group.tickets.map((ticket) => (
                 <Card key={ticket.id} ticket={ticket} />
               ))}
             </div>
