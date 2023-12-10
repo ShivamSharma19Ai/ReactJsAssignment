@@ -25,7 +25,6 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>Kanban Board</h1>
       <Controls onGroupingChange={handleGroupingChange} onSortChange={handleSortChange} />
       <Board tickets={tickets} groupingOption={groupingOption} sortOption={sortOption} />
     </div>
